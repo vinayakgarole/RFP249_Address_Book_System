@@ -14,6 +14,7 @@ public class AddressBookMain {
 
         do {
             System.out.println("1 Press create contact");
+            System.out.println("2 Press show all contacts");
             int ch = sc.nextInt();
 
             switch (ch) {
@@ -22,6 +23,9 @@ public class AddressBookMain {
                     Contacts contacts = getContacts();
                     int index = addressBook.createContacts(contacts);
                     System.out.println("Contact id = " + index);
+                    break;
+                case 2:
+                    addressBook.showContacts();
                     break;
                 default:
                     System.out.println("Invalid Input");
