@@ -15,6 +15,7 @@ public class AddressBookMain {
         do {
             System.out.println("1 Press create contact");
             System.out.println("2 Press show all contacts");
+            System.out.println("3 Press Edit Contact");
             int ch = sc.nextInt();
 
             switch (ch) {
@@ -26,6 +27,11 @@ public class AddressBookMain {
                     break;
                 case 2:
                     addressBook.showContacts();
+                    break;
+                case 3:
+                    System.out.println("Enter First Name: ");
+                    String firstName = sc.next();
+                    addressBook.editContacts(firstName);
                     break;
                 default:
                     System.out.println("Invalid Input");
