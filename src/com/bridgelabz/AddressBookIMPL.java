@@ -45,6 +45,17 @@ public class AddressBookIMPL implements IAddressBook {
         showContacts();
     }
 
+    public void deleteContacts(String firstName) {
+        int i = findByFirstName(firstName);
+
+        if (i != -1) {
+            contactsOfPersons[i] = null;
+        } else {
+            System.out.println("Name not found");
+        }
+        showContacts();
+    }
+
     private void editContactDetails(Contacts contacts) {
         Contacts con = new Contacts();
 

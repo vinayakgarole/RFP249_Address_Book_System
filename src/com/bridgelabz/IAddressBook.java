@@ -7,4 +7,6 @@ public interface IAddressBook {
     void showContacts();
 
     void editContacts(String firstName);
+
+    void deleteContacts(String firstName);
 }
