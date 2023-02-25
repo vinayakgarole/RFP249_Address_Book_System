@@ -23,7 +23,7 @@ public class AddressBookMain {
                 case 1:
                     System.out.println("Create contact");
                     Contacts contacts = getContacts();
-                    int index = addressBook.createContacts(contacts);
+                    int index = addressBook.createContacts(contacts) + 1;
                     System.out.println("Contact id = " + index);
                     break;
                 case 2:
