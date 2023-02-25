@@ -1,26 +1,25 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBookIMPL implements IAddressBook {
 
-    private static Contacts[] contactsOfPersons = new Contacts[10];
+    private static ArrayList<Contacts> contactsOfPersons = new ArrayList<>();
     private static Scanner sc = new Scanner(System.in);//for user input
 
     @Override
     public int createContacts(Contacts contacts) {
-        System.out.println(contacts);
-        int index = getIndexForNextEmptyLocation();
-        System.out.println("index = " + index);
-        contactsOfPersons[index] = contacts;
-        return index;
+        contactsOfPersons.add(contacts);
+        System.out.println(contacts.toString());
+        return contactsOfPersons.indexOf(contacts);
     }
 
     private int getIndexForNextEmptyLocation() {
 
-        for (int i = 0; i < contactsOfPersons.length; i++) {
+        for (int i = 0; i < contactsOfPersons.size(); i++) {
 
-            if (null == contactsOfPersons[i]) {
+            if (null == contactsOfPersons.get(i)) {
                 return i;
             }
         }
@@ -31,8 +30,8 @@ public class AddressBookIMPL implements IAddressBook {
     public void showContacts() {
         System.out.println("Showing All Contacts Details.....");
 
-        for (int i = 0; i < contactsOfPersons.length; i++) {
-            showContactsDetails(contactsOfPersons[i]);
+        for (int i = 0; i < contactsOfPersons.size(); i++) {
+            showContactsDetails(contactsOfPersons.get(i));
         }
     }
 
@@ -40,7 +39,7 @@ public class AddressBookIMPL implements IAddressBook {
     public void editContacts(String firstName) {
         int i = findByFirstName(firstName);
         if (i != -1) {
-            editContactDetails(contactsOfPersons[i]);
+            editContactDetails(contactsOfPersons.get(i));
         }
         showContacts();
     }
@@ -49,7 +48,7 @@ public class AddressBookIMPL implements IAddressBook {
         int i = findByFirstName(firstName);
 
         if (i != -1) {
-            contactsOfPersons[i] = null;
+            contactsOfPersons.set(i, null);
         } else {
             System.out.println("Name not found");
         }
@@ -123,8 +122,8 @@ public class AddressBookIMPL implements IAddressBook {
 
     private int findByFirstName(String firstName) {
 
-        for (int i = 0; i < contactsOfPersons.length; i++) {
-            Contacts contacts = contactsOfPersons[i];
+        for (int i = 0; i < contactsOfPersons.size(); i++) {
+            Contacts contacts = contactsOfPersons.get(i);
 
             if (null != contacts && firstName.equalsIgnoreCase(contacts.getFirstName())) {
                 return i;
