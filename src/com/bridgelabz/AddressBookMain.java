@@ -17,6 +17,7 @@ public class AddressBookMain {
             System.out.println("2 Press show all contacts");
             System.out.println("3 Press Edit Contact");
             System.out.println("4 Press Delete Contact");
+            System.out.println("5 Press Check Duplicate Contact");
             int ch = sc.nextInt();
 
             switch (ch) {
@@ -38,6 +39,11 @@ public class AddressBookMain {
                     System.out.println("Enter the first name of details you want to delete");
                     String firstName1 = sc.next();
                     addressBook.deleteContacts(firstName1);
+                    break;
+                case 5:
+                    System.out.println("Enter first name for duplicate");
+                    String firstName2 = sc.next();
+                    addressBook.duplicateCheck(firstName2);
                     break;
                 default:
                     System.out.println("Invalid Input");
