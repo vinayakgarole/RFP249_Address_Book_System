@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class AddressBookIMPL implements IAddressBook {
 
     private static ArrayList<Contacts> contactsOfPersons = new ArrayList<>();
-    private static Scanner sc = new Scanner(System.in);//for user input
+    private static Scanner sc = new Scanner(System.in);      // For user input
 
     @Override
     public int createContacts(Contacts contacts) {
@@ -55,10 +55,25 @@ public class AddressBookIMPL implements IAddressBook {
         showContacts();
     }
 
+    @Override
+    public void duplicateCheck(String firstName) {
+
+        for (int i = 0; i < contactsOfPersons.size(); i++) {
+            String contactName = contactsOfPersons.get(i).getFirstName();
+
+            if (firstName.equals(contactName)) {
+                System.out.println("This Person is Already Present ");
+            } else {
+                System.out.println("You can Add this Person ");
+                break;
+            }
+        }
+    }
+
     private void editContactDetails(Contacts contacts) {
         Contacts con = new Contacts();
-
         int exit = 1;
+
         do {
             System.out.println("Choose Option to Update :: " + '\n' + " 1.FirstName " + '\n' + " 2.LastName " + '\n' + " 3.Address "
                     + '\n' + " 4.City " + '\n' + " 5.State " + '\n' + " 6.Zip " + '\n'

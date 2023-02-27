@@ -9,4 +9,6 @@ public interface IAddressBook {
     void editContacts(String firstName);
 
     void deleteContacts(String firstName);
+
+    void duplicateCheck(String firstName);
 }
