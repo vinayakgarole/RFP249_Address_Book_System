@@ -77,9 +77,15 @@ public class AddressBookIMPL implements IAddressBook {
         System.out.println("Enter the name of person: ");
         String personName = sc.next();
 
-        contactsOfPersons.stream()
-                .filter(person -> person.getFirstName().equals(personName) && person.getCity().equals(cityName))
-                .forEach(person -> System.out.println(person));
+        for (Contacts contacts : AddressBookIMPL.contactsOfPersons) {
+
+            if (contacts.getFirstName().equals(personName) && contacts.getCity().equals(cityName)) {
+                System.out.println(personName + " Found in Address Book: " + AddressBookIMPL.contactsOfPersons + " !");
+                System.out.println(contacts);
+                return;
+            }
+        }
+        System.out.println("Contact Does Not Exist !!");
     }
 
     @Override
@@ -89,9 +95,15 @@ public class AddressBookIMPL implements IAddressBook {
         System.out.println("Enter the name of person: ");
         String personName = sc.next();
 
-        contactsOfPersons.stream()
-                .filter(person -> person.getFirstName().equals(personName) && person.getState().equals(stateName))
-                .forEach(person -> System.out.println(person));
+        for (Contacts contacts : AddressBookIMPL.contactsOfPersons) {
+
+            if (contacts.getFirstName().equals(personName) && contacts.getState().equals(stateName)) {
+                System.out.println(personName + " Found in Address Book: " + AddressBookIMPL.contactsOfPersons + " !");
+                System.out.println(contacts);
+                return;
+            }
+        }
+        System.out.println("Contact Does Not Exist !!");
     }
 
     private void editContactDetails(Contacts contacts) {
