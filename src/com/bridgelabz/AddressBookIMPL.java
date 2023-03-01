@@ -70,6 +70,30 @@ public class AddressBookIMPL implements IAddressBook {
         }
     }
 
+    @Override
+    public void searchByCity() {
+        System.out.println("Enter the name of the City where the Person resides: ");
+        String cityName = sc.next();
+        System.out.println("Enter the name of person: ");
+        String personName = sc.next();
+
+        contactsOfPersons.stream()
+                .filter(person -> person.getFirstName().equals(personName) && person.getCity().equals(cityName))
+                .forEach(person -> System.out.println(person));
+    }
+
+    @Override
+    public void searchByState() {
+        System.out.println("Enter the name of the State where the Person resides: ");
+        String stateName = sc.next();
+        System.out.println("Enter the name of person: ");
+        String personName = sc.next();
+
+        contactsOfPersons.stream()
+                .filter(person -> person.getFirstName().equals(personName) && person.getState().equals(stateName))
+                .forEach(person -> System.out.println(person));
+    }
+
     private void editContactDetails(Contacts contacts) {
         Contacts con = new Contacts();
         int exit = 1;

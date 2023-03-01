@@ -18,6 +18,8 @@ public class AddressBookMain {
             System.out.println("3 Press Edit Contact");
             System.out.println("4 Press Delete Contact");
             System.out.println("5 Press Check Duplicate Contact");
+            System.out.println("6 Press Check City in Address Book");
+            System.out.println("6 Press Check State in Address Book");
             int ch = sc.nextInt();
 
             switch (ch) {
@@ -44,6 +46,12 @@ public class AddressBookMain {
                     System.out.println("Enter first name for duplicate");
                     String firstName2 = sc.next();
                     addressBook.duplicateCheck(firstName2);
+                    break;
+                case 6:
+                    addressBook.searchByCity();
+                    break;
+                case 7:
+                    addressBook.searchByState();
                     break;
                 default:
                     System.out.println("Invalid Input");
