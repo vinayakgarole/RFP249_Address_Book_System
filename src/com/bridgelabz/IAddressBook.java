@@ -11,4 +11,8 @@ public interface IAddressBook {
     void deleteContacts(String firstName);
 
     void duplicateCheck(String firstName);
+
+    void searchByCity();
+
+    void searchByState();
 }
